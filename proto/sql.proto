@@ -1,0 +1,60 @@
+syntax="proto3";
+
+package aiops.micro.srv.v2.sql;
+
+
+service UserService{
+    rpc GetUserById(IdInfo) returns (UserRes);
+}
+
+
+message IdInfo{
+    int64 id=1;
+}
+
+message UserRes{
+    int64 code=1;
+    SqlInfo data=2;
+    string message=3;
+}
+
+//新增
+message SqlDetail{
+   string name=1;
+   string age=2;
+   string desc=3;
+}
+
+//查询某个的response,删除某个的response,均可通过 ID 进行操作。
+message SqlOne{
+    int64 code=1;
+    SqlInfo data=2;
+    string message=3;
+}
+
+//修改 (该结构体也用于显示)
+message SqlInfo{
+    int64 id=1;
+    string name=2;
+    string age=3;      //实例名
+    string desc=4;       //服务名
+}
+
+//新增，删除，修改的response
+message SqlRes{
+    int64 code=1;
+    string data=2;
+    string message=3;
+}
+
+//查询response的list
+message SqlSelRes{
+    int64 code=1;
+    Data data=2;
+    string message=3;
+}
+
+message Data{
+    repeated SqlInfo userList=1;
+    int64 total=2;
+}
