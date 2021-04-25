@@ -1,0 +1,7 @@
+api:
+  mysql:
+    dsn: root:cmsadmin@tcp(127.0.0.1:3306)/test?charset=utf8&parseTime=true
+    #dsn: test:weakpassword@(10.2.14.64:3306)/aiops?charset=utf8&parseTime=true
+    maxIdleConnection: 10
+    maxOpenConnection: 10
+    maxLifeTime: 30
